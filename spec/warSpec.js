@@ -269,12 +269,12 @@ describe('plane', function () {
 });
 
 describe('medicJeep', function () {
-  it('should be a refueler, a flyer and a saver', function () {
+  it('should be a refueler, a driver and a saver', function () {
     var medicJeep1 = medicJeep();
 
     var props = [
       'refuel',
-      'fly',
+      'drive',
       'save'
     ];
 
@@ -287,12 +287,12 @@ describe('medicJeep', function () {
 });
 
 describe('attackJeep', function () {
-  it('should be a refueler, a flyer and a shooter', function () {
+  it('should be a refueler, a driver and a shooter', function () {
     var attackJeep1 = attackJeep();
 
     var props = [
       'refuel',
-      'fly',
+      'drive',
       'shoot'
     ];
 
