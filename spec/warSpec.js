@@ -141,7 +141,7 @@ describe('flyer().fly', function () {
     expect(obj.position).toEqual(10);
   });
 
-  it('should NOT increment the given "state" objects "position" by if its "gas" property is less than 1', function () {
+  it('should NOT increment the given "state" objects "position" if its "gas" property is less than 1', function () {
     var state = {
       gas: 0,
       position: 0
