@@ -1,4 +1,4 @@
-var compose = function (targetObj) {
+var composeObjects = function (targetObj) {
   var err = 'Error: all arguments passed in to compose must be objects';
 
   if (typeof targetObj !== 'object') {
@@ -19,3 +19,15 @@ var compose = function (targetObj) {
     return targetObj;
   }
 };
+
+function composeConstructors () {
+  var arrConstructors = arguments;
+
+  return function (params) {
+    for (var i = arrConstructors.length - 1; i > -1; i--) {
+      params = arrConstructors[i].call(this, params) || params;
+    }
+      
+     return params;
+  };
+}
