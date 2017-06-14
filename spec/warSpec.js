@@ -2,51 +2,38 @@ describe('refueler', function () {
   it('should be defined', function () {
     expect(refueler).toBeDefined();
   });
-
   it('should be a function', function () {
     expect(typeof refueler).toEqual('function');
   });
-
-  it('should return an object when invoked', function () {
-    expect(typeof refueler()).toEqual('object');
+  it('should be a constructor', function () {
+    expect(typeof new refueler()).toEqual('object');
   });
-
   it('should return an object with the property, "refuel"', function () {
-    expect(refueler()).toHaveProperty('refuel');
+    expect(new refueler()).toHaveProperty('refuel');
   });
 });
-
-describe('refueler().refuel', function () {
+describe('new refueler().refuel', function () {
   it('should be a function', function () {
     expect(typeof refueler().refuel).toEqual('function')
   });
-
   it('should increment the "gas" property of the given "state" object by 1', function () {
-
     var state = {
       gas: 0
     };
-
-    var obj = compose(state, refueler(state));
-
+    var obj = composeObjects(state, new refueler(state));
     obj.refuel();
-
     expect(obj.gas).toEqual(1);
   });
-
 });
-
 describe('shooter', function () {
   it('should be defined', function () {
     expect(shooter).toBeDefined();
   });
-
   it('should be a function', function () {
     expect(typeof shooter).toEqual('function');
   });
-
-  it('should return an object when invoked', function () {
-    expect(typeof shooter()).toEqual('object');
+  it('should be a constructor', function () {
+    expect(typeof new shooter()).toEqual('object');
   });
 
   it('should return an object with the property, "shoot"', function () {
