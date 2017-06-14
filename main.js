@@ -31,3 +31,44 @@ function composeConstructors () {
      return params;
   };
 }
+
+
+var refueler = function(){
+  this.refuel = function(){
+    this.state.gas++;
+  }
+}
+
+var shooter = function(){
+  this.shoot = function(obj){
+    obj.state.dead = true;
+  }
+}
+var saver = function(){
+  this.save = function(obj){
+    obj.state.dead = false;
+  }
+}
+
+var flyer = function(state){
+  this.state = state;
+  this.fly = function(){
+    if (this.state.gas > 0){
+      this.state.position+=10;
+      this.state.gas--;
+    }
+  };
+}
+var driver = function(state){
+  this.state = state;
+  this.drive = function(){
+    if (this.state.gas > 0){
+      this.state.position+=5;
+      this.state.gas--;
+    }
+  };
+}
+var plane = composeConstructors(refueler,shooter,flyer);
+var medicJeep = composeConstructors(refueler,driver,saver);
+var attackJeep = composeConstructors(refueler,driver,shooter);
+var turret = composeConstructors(shooter);
