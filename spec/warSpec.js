@@ -48,9 +48,10 @@ describe('new shooter().shoot', function () {
   });
 
   it('should set the "dead" property of a given object to "true"', function () {
-    var obj1 = new flyer({
+    var state = {
       dead: false
-    });
+    };
+    var obj1 = new flyer(state);
 
     var obj2 = new shooter();
     obj2.shoot(obj1);
